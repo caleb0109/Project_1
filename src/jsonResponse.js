@@ -22,6 +22,9 @@ const getUsers = (request, response) => {
     const responseJSON = {
         users,
     };
+    if (users.length === 0) {
+        return respondJSON(request, response, 404, { message: 'No users found.' });
+    }
     return respondJSON(request, response, 200, responseJSON);
 };
 
@@ -61,7 +64,10 @@ const addUsers = (request, response, userKey) => {
         responseJSON.message = 'Created Successfully.';
         return respondJSON(request, response, responseCode, responseJSON);
     }
-    return respondJSONMeta(request, response, 204);
+    else {
+        responseJSON.message = 'User updated successfully.';
+        return respondJSON(request, response, 200, responseJSON);
+    }
 };
 
 module.exports = {

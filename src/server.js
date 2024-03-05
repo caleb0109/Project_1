@@ -49,7 +49,7 @@ const handleGet = (request, response, parsedURL) => {
     jsonHandler.getUsers(request, response);
   } 
   else {
-    jsonHandler.notFound(request, response);
+    jsonHandler.notReal(request, response);
   }
 };
 
