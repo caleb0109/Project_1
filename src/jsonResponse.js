@@ -44,7 +44,7 @@ const notRealMeta = (request, response) => respondJSONMeta(request, response, 40
 
 const addUsers = (request, response, userKey) => {
   const responseJSON = {
-    message: 'Name is required,',
+    message: 'All fields must be filled out',
   };
 
   if (!userKey.age || !userKey.name || !userKey.bp || !userKey.class || !userKey.weapon) {
