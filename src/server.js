@@ -9,8 +9,7 @@ const port = process.env.PORT || process.env.NODE_PORT || 3000;
 const handleHead = (request, response, parsedURL) => {
   if (parsedURL.pathname === '/getUsers') {
     jsonHandler.getUsersMeta(request, response);
-  } 
-  else {
+  } else {
     jsonHandler.notRealMeta(request, response);
   }
 };
@@ -41,14 +40,11 @@ const handlePost = (request, response, parsedURL) => {
 const handleGet = (request, response, parsedURL) => {
   if (parsedURL.pathname === '/style.css') {
     htmlHandler.getCSS(request, response);
-  } 
-  else if (parsedURL.pathname === '/') {
+  } else if (parsedURL.pathname === '/') {
     htmlHandler.getIndex(request, response);
-  } 
-  else if (parsedURL.pathname === '/getUsers') {
+  } else if (parsedURL.pathname === '/getUsers') {
     jsonHandler.getUsers(request, response);
-  } 
-  else {
+  } else {
     jsonHandler.notReal(request, response);
   }
 };
@@ -57,11 +53,9 @@ const onRequest = (request, response) => {
   const parsedUrl = url.parse(request.url);
   if (request.method === 'POST') {
     handlePost(request, response, parsedUrl);
-  } 
-  else if (request.method === 'GET') {
+  } else if (request.method === 'GET') {
     handleGet(request, response, parsedUrl);
-  } 
-  else {
+  } else {
     handleHead(request, response, parsedUrl);
   }
 };

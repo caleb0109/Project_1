@@ -62,7 +62,12 @@
       const nameAction = nameForm.getAttribute('action');
       const nameField = nameForm.querySelector('#nameField');
       const ageField = nameForm.querySelector('#ageField');
-      const formData = `name=${nameField.value}&age=${ageField.value}`;
+      const classField = nameForm.querySelector('#classField');
+      const weaponField = nameForm.querySelector('#weaponField');
+      const bpField = nameForm.querySelector('#bpField');
+      const formData = `name=${nameField.value}&age=${ageField.value}
+                        &class=${classField.value}&weapon=${weaponField.value}
+                        &bp=${bpField.value}`;
 
       let response = await fetch(nameAction, {
         method: nameMethod,
@@ -109,6 +114,12 @@
       <input id="nameField" type="text" name="name" />
       <label for="age">Age: </label>
       <input id="ageField" type="number" name="age" min="0" max="100" step="1"/>
+      <label for="class">Class: </label>
+      <input id="classField" type="text" name="class" />
+      <label for="weapon">Weapon: </label>
+      <input id="weaponField" type="text" name="weapon" />
+      <label for="bp">:Birthplace </label>
+      <input id="bpField" type="text" name="bp" />
       <input type="submit" value="Add User" />
     </form>
     <form id="userForm" action="/getUsers" method="get">
